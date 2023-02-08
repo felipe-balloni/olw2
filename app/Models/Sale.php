@@ -21,11 +21,8 @@ class Sale extends Model
         'sold_at',
     ];
 
-    protected $dates = [
-        'sold_at',
-    ];
-
     protected $casts = [
+        'sold_at' => 'datetime',
         'total_amount' => 'float',
         'status' => status::class,
     ];
