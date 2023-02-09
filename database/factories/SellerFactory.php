@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Company;
+use App\Models\Seller;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +12,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class SellerFactory extends Factory
 {
+
+    protected $model = Seller::class;
+
     /**
      * Define the model's default state.
      *
@@ -17,7 +23,9 @@ class SellerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'company_id' => Company::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

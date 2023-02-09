@@ -2,22 +2,21 @@
 
 namespace Database\Factories;
 
+use App\Models\Address;
+use App\Models\Client;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Client>
- */
 class ClientFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition()
+    protected $model = Client::class;
+
+    public function definition(): array
     {
         return [
-            //
+            'address_id' => Address::factory(),
+            'user_id' => User::factory(),
+            'name' => $this->faker->name,
         ];
     }
 }

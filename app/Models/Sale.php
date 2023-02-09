@@ -15,7 +15,6 @@ class Sale extends Model
     protected $fillable = [
         'seller_id',
         'client_id',
-        'source',
         'status',
         'total_amount',
         'sold_at',
@@ -24,7 +23,7 @@ class Sale extends Model
     protected $casts = [
         'sold_at' => 'datetime',
         'total_amount' => 'float',
-        'status' => status::class,
+        'status' => Status::class,
     ];
 
     public function seller(): BelongsTo
