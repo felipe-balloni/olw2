@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Address extends Model
 {
@@ -15,9 +15,9 @@ class Address extends Model
         'state',
     ];
 
-    public function clients(): belongsTo
+    public function clients(): HasMany
     {
-        return $this->belongsTo(Client::class);
+        return $this->HasMany(Client::class);
     }
 
 }
