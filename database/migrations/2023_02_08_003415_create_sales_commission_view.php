@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -32,7 +29,7 @@ return new class extends Migration
                 DB::raw('s.total_amount * c.commission_rate / 100 as commission')
             )->toSql();
 
-        DB::statement("CREATE MATERIALIZED VIEW create_sales_commission_view AS $query");
+        DB::statement("CREATE MATERIALIZED VIEW sales_commission_view AS $query");
     }
 
     /**
@@ -42,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::statement('DROP MATERIALIZED VIEW create_sales_commission_view');
+        DB::statement('DROP MATERIALIZED VIEW sales_commission_view');
     }
 };

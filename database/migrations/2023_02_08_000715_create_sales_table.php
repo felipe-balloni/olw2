@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('seller_id')->constrained();
             $table->foreignId('client_id')->constrained();
-            $table->string('source');
             $table->char('status');
             $table->integer('total_amount');
             $table->timestamp('sold_at')->useCurrent();
